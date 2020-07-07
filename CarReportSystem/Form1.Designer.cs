@@ -48,7 +48,7 @@
             this.dgvRecode = new System.Windows.Forms.DataGridView();
             this.btOpen = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
-            this.CarMaker = new System.Windows.Forms.GroupBox();
+            this.Maker = new System.Windows.Forms.GroupBox();
             this.btOpenImage = new System.Windows.Forms.Button();
             this.btDeleteImage = new System.Windows.Forms.Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
@@ -59,7 +59,7 @@
             this.ofdOpenData = new System.Windows.Forms.OpenFileDialog();
             this.sfdSaveData = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).BeginInit();
-            this.CarMaker.SuspendLayout();
+            this.Maker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -268,19 +268,19 @@
             this.btSave.Text = "保存";
             this.btSave.UseVisualStyleBackColor = true;
             // 
-            // CarMaker
+            // Maker
             // 
-            this.CarMaker.Controls.Add(this.rbHonda);
-            this.CarMaker.Controls.Add(this.rbToyota);
-            this.CarMaker.Controls.Add(this.rbNissan);
-            this.CarMaker.Controls.Add(this.rbSubaru);
-            this.CarMaker.Controls.Add(this.rbForeignCar);
-            this.CarMaker.Controls.Add(this.rbOther);
-            this.CarMaker.Location = new System.Drawing.Point(122, 94);
-            this.CarMaker.Name = "CarMaker";
-            this.CarMaker.Size = new System.Drawing.Size(400, 29);
-            this.CarMaker.TabIndex = 8;
-            this.CarMaker.TabStop = false;
+            this.Maker.Controls.Add(this.rbHonda);
+            this.Maker.Controls.Add(this.rbToyota);
+            this.Maker.Controls.Add(this.rbNissan);
+            this.Maker.Controls.Add(this.rbSubaru);
+            this.Maker.Controls.Add(this.rbForeignCar);
+            this.Maker.Controls.Add(this.rbOther);
+            this.Maker.Location = new System.Drawing.Point(122, 94);
+            this.Maker.Name = "Maker";
+            this.Maker.Size = new System.Drawing.Size(400, 29);
+            this.Maker.TabIndex = 8;
+            this.Maker.TabStop = false;
             // 
             // btOpenImage
             // 
@@ -291,6 +291,7 @@
             this.btOpenImage.TabIndex = 7;
             this.btOpenImage.Text = "開く";
             this.btOpenImage.UseVisualStyleBackColor = true;
+            this.btOpenImage.Click += new System.EventHandler(this.btOpenImage_Click);
             // 
             // btDeleteImage
             // 
@@ -304,6 +305,8 @@
             // 
             // pbImage
             // 
+            this.pbImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbImage.Location = new System.Drawing.Point(559, 42);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(237, 198);
@@ -319,6 +322,7 @@
             this.btAdd.TabIndex = 7;
             this.btAdd.Text = "追加";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // btFix
             // 
@@ -354,7 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 442);
             this.Controls.Add(this.pbImage);
-            this.Controls.Add(this.CarMaker);
+            this.Controls.Add(this.Maker);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btDeleteImage);
             this.Controls.Add(this.btDelete);
@@ -377,8 +381,8 @@
             this.Name = "Form1";
             this.Text = "試乗レポート管理システム";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).EndInit();
-            this.CarMaker.ResumeLayout(false);
-            this.CarMaker.PerformLayout();
+            this.Maker.ResumeLayout(false);
+            this.Maker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -407,7 +411,7 @@
         private System.Windows.Forms.DataGridView dgvRecode;
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.GroupBox CarMaker;
+        private System.Windows.Forms.GroupBox Maker;
         private System.Windows.Forms.Button btOpenImage;
         private System.Windows.Forms.Button btDeleteImage;
         private System.Windows.Forms.PictureBox pbImage;
