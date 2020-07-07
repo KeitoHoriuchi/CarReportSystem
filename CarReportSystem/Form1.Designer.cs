@@ -48,15 +48,18 @@
             this.dgvRecode = new System.Windows.Forms.DataGridView();
             this.btOpen = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
-            this.bpMaker = new System.Windows.Forms.GroupBox();
-            this.btOpenPicture = new System.Windows.Forms.Button();
-            this.btDeletePicture = new System.Windows.Forms.Button();
+            this.CarMaker = new System.Windows.Forms.GroupBox();
+            this.btOpenImage = new System.Windows.Forms.Button();
+            this.btDeleteImage = new System.Windows.Forms.Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.btAdd = new System.Windows.Forms.Button();
             this.btFix = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
+            this.ofdOpenImage = new System.Windows.Forms.OpenFileDialog();
+            this.ofdOpenData = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSaveData = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).BeginInit();
-            this.bpMaker.SuspendLayout();
+            this.CarMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,7 +233,7 @@
             // 
             // Report
             // 
-            this.Report.Location = new System.Drawing.Point(123, 175);
+            this.Report.Location = new System.Drawing.Point(124, 174);
             this.Report.Multiline = true;
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(406, 115);
@@ -265,39 +268,39 @@
             this.btSave.Text = "保存";
             this.btSave.UseVisualStyleBackColor = true;
             // 
-            // bpMaker
+            // CarMaker
             // 
-            this.bpMaker.Controls.Add(this.rbHonda);
-            this.bpMaker.Controls.Add(this.rbToyota);
-            this.bpMaker.Controls.Add(this.rbNissan);
-            this.bpMaker.Controls.Add(this.rbSubaru);
-            this.bpMaker.Controls.Add(this.rbForeignCar);
-            this.bpMaker.Controls.Add(this.rbOther);
-            this.bpMaker.Location = new System.Drawing.Point(122, 94);
-            this.bpMaker.Name = "bpMaker";
-            this.bpMaker.Size = new System.Drawing.Size(400, 29);
-            this.bpMaker.TabIndex = 8;
-            this.bpMaker.TabStop = false;
+            this.CarMaker.Controls.Add(this.rbHonda);
+            this.CarMaker.Controls.Add(this.rbToyota);
+            this.CarMaker.Controls.Add(this.rbNissan);
+            this.CarMaker.Controls.Add(this.rbSubaru);
+            this.CarMaker.Controls.Add(this.rbForeignCar);
+            this.CarMaker.Controls.Add(this.rbOther);
+            this.CarMaker.Location = new System.Drawing.Point(122, 94);
+            this.CarMaker.Name = "CarMaker";
+            this.CarMaker.Size = new System.Drawing.Size(400, 29);
+            this.CarMaker.TabIndex = 8;
+            this.CarMaker.TabStop = false;
             // 
-            // btOpenPicture
+            // btOpenImage
             // 
-            this.btOpenPicture.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.btOpenPicture.Location = new System.Drawing.Point(610, 13);
-            this.btOpenPicture.Name = "btOpenPicture";
-            this.btOpenPicture.Size = new System.Drawing.Size(75, 23);
-            this.btOpenPicture.TabIndex = 7;
-            this.btOpenPicture.Text = "開く";
-            this.btOpenPicture.UseVisualStyleBackColor = true;
+            this.btOpenImage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.btOpenImage.Location = new System.Drawing.Point(610, 13);
+            this.btOpenImage.Name = "btOpenImage";
+            this.btOpenImage.Size = new System.Drawing.Size(75, 23);
+            this.btOpenImage.TabIndex = 7;
+            this.btOpenImage.Text = "開く";
+            this.btOpenImage.UseVisualStyleBackColor = true;
             // 
-            // btDeletePicture
+            // btDeleteImage
             // 
-            this.btDeletePicture.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.btDeletePicture.Location = new System.Drawing.Point(721, 13);
-            this.btDeletePicture.Name = "btDeletePicture";
-            this.btDeletePicture.Size = new System.Drawing.Size(75, 23);
-            this.btDeletePicture.TabIndex = 7;
-            this.btDeletePicture.Text = "削除";
-            this.btDeletePicture.UseVisualStyleBackColor = true;
+            this.btDeleteImage.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.btDeleteImage.Location = new System.Drawing.Point(721, 13);
+            this.btDeleteImage.Name = "btDeleteImage";
+            this.btDeleteImage.Size = new System.Drawing.Size(75, 23);
+            this.btDeleteImage.TabIndex = 7;
+            this.btDeleteImage.Text = "削除";
+            this.btDeleteImage.UseVisualStyleBackColor = true;
             // 
             // pbImage
             // 
@@ -337,19 +340,27 @@
             this.btDelete.Text = "削除";
             this.btDelete.UseVisualStyleBackColor = true;
             // 
+            // ofdOpenImage
+            // 
+            this.ofdOpenImage.FileName = "openFileDialog1";
+            // 
+            // ofdOpenData
+            // 
+            this.ofdOpenData.FileName = "openFileDialog2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 442);
             this.Controls.Add(this.pbImage);
-            this.Controls.Add(this.bpMaker);
+            this.Controls.Add(this.CarMaker);
             this.Controls.Add(this.btSave);
-            this.Controls.Add(this.btDeletePicture);
+            this.Controls.Add(this.btDeleteImage);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btFix);
             this.Controls.Add(this.btAdd);
-            this.Controls.Add(this.btOpenPicture);
+            this.Controls.Add(this.btOpenImage);
             this.Controls.Add(this.btOpen);
             this.Controls.Add(this.dgvRecode);
             this.Controls.Add(this.Report);
@@ -366,8 +377,8 @@
             this.Name = "Form1";
             this.Text = "試乗レポート管理システム";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).EndInit();
-            this.bpMaker.ResumeLayout(false);
-            this.bpMaker.PerformLayout();
+            this.CarMaker.ResumeLayout(false);
+            this.CarMaker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -396,13 +407,16 @@
         private System.Windows.Forms.DataGridView dgvRecode;
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.GroupBox bpMaker;
-        private System.Windows.Forms.Button btOpenPicture;
-        private System.Windows.Forms.Button btDeletePicture;
+        private System.Windows.Forms.GroupBox CarMaker;
+        private System.Windows.Forms.Button btOpenImage;
+        private System.Windows.Forms.Button btDeleteImage;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btFix;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.OpenFileDialog ofdOpenImage;
+        private System.Windows.Forms.OpenFileDialog ofdOpenData;
+        private System.Windows.Forms.SaveFileDialog sfdSaveData;
     }
 }
 
