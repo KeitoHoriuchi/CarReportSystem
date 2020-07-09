@@ -24,7 +24,6 @@ namespace CarReportSystem
         
         public enum CarMaker
         {
-            DEFAULT,
             トヨタ,
             日産,
             ホンダ,

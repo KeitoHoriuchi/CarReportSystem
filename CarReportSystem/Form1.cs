@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.IO;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace CarReportSystem
 {
-    
+
     public partial class Form1 : Form
     {
         BindingList<CarReport> Reports = new BindingList<CarReport>();
@@ -28,12 +29,15 @@ namespace CarReportSystem
                 CreatedDate = dtpDate.Value,
                 Author = cbAuthor.Text,
                 Name = cbName.Text,
-                Report = Report.Text
+                Report = tbReport.Text
             };
-            var RadioButtonChecked_InGroup = Maker.Controls.OfType<RadioButton>()
-        .SingleOrDefault(rb => rb.Checked == true);
+            setcbAuthor(cbAuthor.Text);
+            setcbName(cbName.Text);
+            CarReport carReport = new CarReport();
+            carReport.Maker = getMaker();
 
-            Reports.Insert(0,obj);
+
+            Reports.Insert(0, obj);
         }
 
 
@@ -67,6 +71,63 @@ namespace CarReportSystem
             }
         }
 
+        private void btDeleteImage_Click(object sender, EventArgs e)
+        {
+            pbImage.Image = null;
+        }
 
+        //開く
+        private void btOpen_Click(object sender, EventArgs e)
+        {
+            if (ofdOpenData.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream fs = new FileStream(ofdOpenData.FileName, FileMode.Open))
+                {
+                    try
+                    {
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        Reports = (BindingList<CarReport>)formatter.Deserialize(fs);
+                        dgvRecode.DataSource = Reports;
+                        dgvCarDate_Click(sender, e);
+
+                    }
+                    catch (SerializationException se)
+                    {
+                        Console.WriteLine("Failed to deserialize. Reason: " + se.Message);
+                        throw;
+                    }
+                }
+            }
+        }
+
+        //保存
+        private void btSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private CarReport.CarMaker getMaker(){
+            RadioButton selectMaker = Maker.Controls.Cast<RadioButton>().FirstOrDefault();
+            return (CarReport.CarMaker)int.Parse(selectMaker.Tag.ToString());
+        }
+
+        private void setMaker()
+        {
+
+        }
+
+        private void dgvCarDate_Click(object sender, EventArgs e)
+        {
+            //選択したレコードを取り出す
+            /*データグリッドビューで選択した行のインデックスを元に
+             * BindingListのデータを取得する
+            */
+            CarReport selectedCara = Reports[dgvRecode.CurrentRow.Index];
+            dtpDate.Value = selectedCara.CreatedDate;
+            cbAuthor.Text = selectedCara.Author;
+            cbName.Text = selectedCara.Name;
+            pbImage.Image = selectedCara.Picture;
+            tbReport.Text = selectedCara.Report;
+        }
     }
 }

@@ -44,8 +44,7 @@
             this.rbForeignCar = new System.Windows.Forms.RadioButton();
             this.rbOther = new System.Windows.Forms.RadioButton();
             this.cbName = new System.Windows.Forms.ComboBox();
-            this.Report = new System.Windows.Forms.TextBox();
-            this.dgvRecode = new System.Windows.Forms.DataGridView();
+            this.tbReport = new System.Windows.Forms.TextBox();
             this.btOpen = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.Maker = new System.Windows.Forms.GroupBox();
@@ -58,9 +57,10 @@
             this.ofdOpenImage = new System.Windows.Forms.OpenFileDialog();
             this.ofdOpenData = new System.Windows.Forms.OpenFileDialog();
             this.sfdSaveData = new System.Windows.Forms.SaveFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).BeginInit();
+            this.dgvRecode = new System.Windows.Forms.DataGridView();
             this.Maker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -159,6 +159,7 @@
             this.rbToyota.Size = new System.Drawing.Size(58, 20);
             this.rbToyota.TabIndex = 3;
             this.rbToyota.TabStop = true;
+            this.rbToyota.Tag = "0";
             this.rbToyota.Text = "トヨタ";
             this.rbToyota.UseVisualStyleBackColor = true;
             // 
@@ -171,6 +172,7 @@
             this.rbNissan.Size = new System.Drawing.Size(58, 20);
             this.rbNissan.TabIndex = 3;
             this.rbNissan.TabStop = true;
+            this.rbNissan.Tag = "1";
             this.rbNissan.Text = "日産";
             this.rbNissan.UseVisualStyleBackColor = true;
             // 
@@ -183,6 +185,7 @@
             this.rbHonda.Size = new System.Drawing.Size(63, 20);
             this.rbHonda.TabIndex = 3;
             this.rbHonda.TabStop = true;
+            this.rbHonda.Tag = "2";
             this.rbHonda.Text = "ホンダ";
             this.rbHonda.UseVisualStyleBackColor = true;
             // 
@@ -195,6 +198,7 @@
             this.rbSubaru.Size = new System.Drawing.Size(65, 20);
             this.rbSubaru.TabIndex = 3;
             this.rbSubaru.TabStop = true;
+            this.rbSubaru.Tag = "3";
             this.rbSubaru.Text = "スバル";
             this.rbSubaru.UseVisualStyleBackColor = true;
             // 
@@ -207,6 +211,7 @@
             this.rbForeignCar.Size = new System.Drawing.Size(58, 20);
             this.rbForeignCar.TabIndex = 3;
             this.rbForeignCar.TabStop = true;
+            this.rbForeignCar.Tag = "4";
             this.rbForeignCar.Text = "外車";
             this.rbForeignCar.UseVisualStyleBackColor = true;
             // 
@@ -219,6 +224,7 @@
             this.rbOther.Size = new System.Drawing.Size(67, 20);
             this.rbOther.TabIndex = 3;
             this.rbOther.TabStop = true;
+            this.rbOther.Tag = "5";
             this.rbOther.Text = "その他";
             this.rbOther.UseVisualStyleBackColor = true;
             // 
@@ -231,22 +237,13 @@
             this.cbName.Size = new System.Drawing.Size(201, 24);
             this.cbName.TabIndex = 4;
             // 
-            // Report
+            // tbReport
             // 
-            this.Report.Location = new System.Drawing.Point(124, 174);
-            this.Report.Multiline = true;
-            this.Report.Name = "Report";
-            this.Report.Size = new System.Drawing.Size(406, 115);
-            this.Report.TabIndex = 5;
-            // 
-            // dgvRecode
-            // 
-            this.dgvRecode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecode.Location = new System.Drawing.Point(123, 296);
-            this.dgvRecode.Name = "dgvRecode";
-            this.dgvRecode.RowTemplate.Height = 21;
-            this.dgvRecode.Size = new System.Drawing.Size(673, 142);
-            this.dgvRecode.TabIndex = 6;
+            this.tbReport.Location = new System.Drawing.Point(124, 174);
+            this.tbReport.Multiline = true;
+            this.tbReport.Name = "tbReport";
+            this.tbReport.Size = new System.Drawing.Size(406, 115);
+            this.tbReport.TabIndex = 5;
             // 
             // btOpen
             // 
@@ -257,6 +254,7 @@
             this.btOpen.TabIndex = 7;
             this.btOpen.Text = "開く";
             this.btOpen.UseVisualStyleBackColor = true;
+            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
             // btSave
             // 
@@ -302,6 +300,7 @@
             this.btDeleteImage.TabIndex = 7;
             this.btDeleteImage.Text = "削除";
             this.btDeleteImage.UseVisualStyleBackColor = true;
+            this.btDeleteImage.Click += new System.EventHandler(this.btDeleteImage_Click);
             // 
             // pbImage
             // 
@@ -352,6 +351,15 @@
             // 
             this.ofdOpenData.FileName = "openFileDialog2";
             // 
+            // dgvRecode
+            // 
+            this.dgvRecode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecode.Location = new System.Drawing.Point(123, 296);
+            this.dgvRecode.Name = "dgvRecode";
+            this.dgvRecode.RowTemplate.Height = 21;
+            this.dgvRecode.Size = new System.Drawing.Size(673, 142);
+            this.dgvRecode.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -367,7 +375,7 @@
             this.Controls.Add(this.btOpenImage);
             this.Controls.Add(this.btOpen);
             this.Controls.Add(this.dgvRecode);
-            this.Controls.Add(this.Report);
+            this.Controls.Add(this.tbReport);
             this.Controls.Add(this.cbName);
             this.Controls.Add(this.cbAuthor);
             this.Controls.Add(this.dtpDate);
@@ -380,10 +388,10 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "試乗レポート管理システム";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).EndInit();
             this.Maker.ResumeLayout(false);
             this.Maker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,8 +415,7 @@
         private System.Windows.Forms.RadioButton rbForeignCar;
         private System.Windows.Forms.RadioButton rbOther;
         private System.Windows.Forms.ComboBox cbName;
-        private System.Windows.Forms.TextBox Report;
-        private System.Windows.Forms.DataGridView dgvRecode;
+        private System.Windows.Forms.TextBox tbReport;
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.GroupBox Maker;
@@ -421,6 +428,7 @@
         private System.Windows.Forms.OpenFileDialog ofdOpenImage;
         private System.Windows.Forms.OpenFileDialog ofdOpenData;
         private System.Windows.Forms.SaveFileDialog sfdSaveData;
+        private System.Windows.Forms.DataGridView dgvRecode;
     }
 }
 
