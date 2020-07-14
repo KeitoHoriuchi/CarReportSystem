@@ -46,7 +46,6 @@
             this.cbName = new System.Windows.Forms.ComboBox();
             this.tbReport = new System.Windows.Forms.TextBox();
             this.btOpen = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
             this.Maker = new System.Windows.Forms.GroupBox();
             this.btOpenImage = new System.Windows.Forms.Button();
             this.btDeleteImage = new System.Windows.Forms.Button();
@@ -252,19 +251,9 @@
             this.btOpen.Name = "btOpen";
             this.btOpen.Size = new System.Drawing.Size(75, 23);
             this.btOpen.TabIndex = 7;
-            this.btOpen.Text = "開く";
+            this.btOpen.Text = "接続";
             this.btOpen.UseVisualStyleBackColor = true;
             this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
-            // 
-            // btSave
-            // 
-            this.btSave.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.btSave.Location = new System.Drawing.Point(23, 365);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(75, 23);
-            this.btSave.TabIndex = 7;
-            this.btSave.Text = "保存";
-            this.btSave.UseVisualStyleBackColor = true;
             // 
             // Maker
             // 
@@ -367,7 +356,6 @@
             this.ClientSize = new System.Drawing.Size(808, 442);
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.Maker);
-            this.Controls.Add(this.btSave);
             this.Controls.Add(this.btDeleteImage);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btFix);
@@ -417,7 +405,6 @@
         private System.Windows.Forms.ComboBox cbName;
         private System.Windows.Forms.TextBox tbReport;
         private System.Windows.Forms.Button btOpen;
-        private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.GroupBox Maker;
         private System.Windows.Forms.Button btOpenImage;
         private System.Windows.Forms.Button btDeleteImage;

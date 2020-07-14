@@ -76,7 +76,7 @@ namespace CarReportSystem
             pbImage.Image = null;
         }
 
-        //開く
+        //接続
         private void btOpen_Click(object sender, EventArgs e)
         {
             if (ofdOpenData.ShowDialog() == DialogResult.OK)
