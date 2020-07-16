@@ -36,6 +36,11 @@ namespace CarReportSystem
 
 
             setMaker(Maker.Text);
+
+            this.Validate();
+            this.carReportBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202012DataSet);
+
             /*
             //CarReportオブジェクト生成
             CarReport obj = new CarReport
