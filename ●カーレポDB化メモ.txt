@@ -1,0 +1,35 @@
+①データベースへ接続してデータグリッドビューへ内容を表示できるか？
+(注意)
+・１行選択されていること
+・複数の選択はできないこと
+
+②データグリッドビューから１行選択して、ラジオボタンが反映されているか？
+
+③データの変更（修正）ができるか？
+・データグリッドビューの選択行のデータは以下を参照すると取得できる
+ データグリッドオブジェクト.CurrentRow.Cells[インデックス番号].Value;
+
+
+・データベース更新（反映）については以下を利用
+　this.Validate();
+　this.carReportBindingSource.EndEdit();
+　this.tableAdapterManager.UpdateAll(データセットを指定);
+
+④画像の登録
+・データベースから画像をピクチャーボックスへ表示するとき
+// バイト配列をImageオブジェクトに変換
+public static Image ByteArrayToImage(byte[] byteData)
+{
+    ImageConverter imgconv = new ImageConverter();
+    Image img = (Image)imgconv.ConvertFrom(byteData);
+    return img;
+}
+
+・ピクチャーボックスからデータベースへ登録するとき
+// Imageオブジェクトをバイト配列に変換
+public static byte[] ImageToByteArray(Image img)
+{
+    ImageConverter imgconv = new ImageConverter();
+    byte[] byteData = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
+    return byteData;
+}
